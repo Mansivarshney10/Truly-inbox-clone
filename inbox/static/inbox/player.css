@@ -52,14 +52,27 @@ p {
 }
 
 img {
-    width: 50%;
+    width: 15%;
     height: auto;
     display: block;
-    margin: 0 auto; /* This centers the image horizontally */
+    margin: 0;
+}
+
+#nav-logo {
+    margin-left: -1rem;
+}
+
+.title-name {
+    margin-left: 1rem;
+}
+
+#nav-title {
+    margin-left: 3rem;
+    margin-top: -2.8rem;
 }
 
 .signup-btn {
-    background-color: #fd853a;
+    background-color: #3773aa;
     width: 100%;
     margin-top: 40px;
     color: white;
@@ -202,7 +215,7 @@ img {
 }
 
 .addEmail-btn {
-    background-color: #fd853a;
+    background-color: #3773aa;
     width: 12%;
     margin: 30px auto;
     color: white;
@@ -339,8 +352,9 @@ img {
 }
 
 .email-account-img {
-    max-width: 25%;
+    max-width: 50%;
     height: auto;
+    margin-left: 45px;
 }
 
 .regular-5 {
@@ -540,8 +554,8 @@ label {
 }
 
 .modal-body .add-smtp-imap-wrapper .tips-wrapper .test-email-section .shd-button--secondary:disabled {
-    border-color: #fd853a;
-    color: #fd853a;
+    border-color: #3773aa;
+    color: #3773aa;
     border-radius: 5px;
 }
 
@@ -584,8 +598,8 @@ label {
 
 .connect-smtp-imap-account-modal .modal-footer .submit-btn {
     color: #fff!important;
-    background: #fd853a!important;
-    border-color: #fd853a!important;
+    background: #3773aa!important;
+    border-color: #3773aa!important;
     height: 2.2rem!important;
 }
 
@@ -627,13 +641,13 @@ label {
 
 .btn-solid-primary.disabled, .btn-solid-primary:disabled {
     color: #fff;
-    background-color: #fd853a;
-    border: 1px solid #fd853a;
+    background-color: #3773aa;
+    border: 1px solid #3773aa;
 }
 
 .btn-solid-primary.disabled, .btn-solid-primary:disabled {
     color: #212529;
-    border-color: #fd853a;
+    border-color: #3773aa;
 }
 
 .btn-solid.disabled, .btn-solid:disabled {
@@ -641,8 +655,9 @@ label {
 }
 
 .btn-solid-primary, .btn-solid-primary:hover {
-    background-color: #fd853a;
-    border-color: #fd853a;
+    background-color: #3773aa;
+    border-color: #3773aa;
+    color: white;
 }
 
 .modal-body .add-smtp-imap-wrapper .form-wrapper .form-container .form-item:last-child .encryption-radio-group-wrap .encryption-radio-group {
@@ -694,8 +709,8 @@ label {
 }
 
 .btn-solid-outlined {
-    color: #fd853a;
-    border-color: #fd853a;
+    color: #3773aa;
+    border-color: #3773aa;
 }
 
 .bs-input-affix-wrapper {
