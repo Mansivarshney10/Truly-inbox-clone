@@ -1,0 +1,144 @@
+{% extends "base_generic.html" %}
+{% block content %}
+
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand ml-4" href="#">
+      <img src="https://app.trulyinbox.com/static/media/truly-inbox.d8f0ea80.svg" class="d-inline-block align-top" alt="" style="
+      width: 150px;">
+    </a>
+    <div class="collapse navbar" id="navbarText" style="
+    margin-left: -860px;">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">EMAIL WARM-UP</a>
+        </li>
+      </ul>
+    </div>
+    <div class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle mr-5 text-black" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Dropdown link
+      </a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="#">Another action</a>
+        <a class="dropdown-item" href="#">Something else here</a>
+      </div>
+    </div>
+</nav>
+
+<div class="header-container d-flex justify-content-between pt-4 pb-4">
+    <div class="d-flex align-items-center">
+        <div class="bs-select-box bs-select-box" tabindex="0" width="291" height="22">
+            <div class="bs-select-box-text">
+                <span class="semibold-10">
+                    <i class="fa fa-envelope" aria-hidden="true"></i>mansivarshney13@gmail.com
+                </span>
+            </div>
+            <div class="bs-select-box-icon-wrapper">
+                <i class="sh-chevron-down" role="button" tabindex="0"></i>
+            </div>
+        </div>
+        <div class="switchToggle switch-small d-flex">
+            <input type="checkbox" name="Switch">
+            <label for="Switch" role="button" tabindex="0"><span></span></label>
+        </div>
+        <p class="m-0 ml-2 blue-txt-15 semibold-2">Paused</p>
+    </div>
+    <button type="button" class="warmup-setting-btn gray-txt-15 btn-ghost btn-ghost-default btn-ghost-md">
+        <span class="icon-left">
+            <i class="fa fa-cog" aria-hidden="true"></i>
+        </span>Warm-up Settings
+    </button>
+</div>
+
+<div class="email-warmup-report-stat">
+    <!-- Header -->
+    <div class="email-warmup-report-stat--header d-flex">
+        <div class="email-warmup-report-stat__item d-flex align-items-center">Sent</div>
+        <div class="email-warmup-report-stat__item d-flex align-items-center">Received</div>
+        <div class="email-warmup-report-stat__item d-flex align-items-center">Deliverability <span>(Inbox vs Spam)</span></div>
+    </div>
+
+    <!-- Body -->
+    <div class="email-warmup-report-stat--body d-flex align-items-center">
+        
+        <!-- Sent Stats -->
+        <div class="email-warmup-report-stat--body-item">
+            <div class="email-deliverability-stats">
+                <p class="m-0 font-12 font-semibold">Sent Today</p>
+                <h4 class="d-flex align-items-center font-16 font-semibold">0</h4>
+            </div>
+            <div class="email-deliverability-stats">
+                <p class="m-0 font-12 font-semibold">Sent in last 7 days</p>
+                <h4 class="d-flex align-items-center font-16 font-semibold">0</h4>
+            </div>
+            <div class="email-deliverability-stats">
+                <p class="m-0 font-12 font-semibold">Sent in last 30 days</p>
+                <h4 class="d-flex align-items-center font-16 font-semibold">0</h4>
+            </div>
+        </div>
+
+        <!-- Received Stats -->
+        <div class="email-warmup-report-stat--body-item">
+            <div class="email-deliverability-stats">
+                <p class="m-0 font-12 font-semibold">Received Today</p>
+                <h4 class="d-flex align-items-center font-16 font-semibold">0</h4>
+            </div>
+            <div class="email-deliverability-stats">
+                <p class="m-0 font-12 font-semibold">Received in last 7 days</p>
+                <h4 class="d-flex align-items-center font-16 font-semibold">0</h4>
+            </div>
+            <div class="email-deliverability-stats">
+                <p class="m-0 font-12 font-semibold">Received in last 30 days</p>
+                <h4 class="d-flex align-items-center font-16 font-semibold">0</h4>
+            </div>
+        </div>
+        
+        <!-- Separator -->
+        <div class="email-warmup-separator email-warmup-separator--large"></div>
+
+        <!-- Deliverability Stats -->
+        <div class="email-warmup-report-stat--body-item deliverability-item d-flex justify-content-between align-items-center">
+            
+            <!-- Chart Legend -->
+            <div class="d-flex align-items-center">
+                <img src="https://app.trulyinbox.com/static/media/empty-pie.264659ab.svg" alt="Pie" class="mr-5">
+                <div class="chart-legend d-flex flex-column">
+                    <div class="chart-legend--wrapper d-flex align-items-center">
+                        <div class="chart-legend__marker inbox"></div>
+                        <span class="chart-legend__label">Inbox</span>
+                    </div>
+                    <div class="chart-legend--wrapper d-flex align-items-center">
+                        <div class="chart-legend__marker spam"></div>
+                        <span class="chart-legend__label">Spam</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Small Separator -->
+            <div class="email-warmup-separator email-warmup-separator--small"></div>
+            
+            <!-- Deliverability Details -->
+            <div class="deliverability-stats">
+                <div class="deliverability-stats__wrapper d-flex align-items-center">
+                    <span class="font-14 font-medium">Deliverability</span>
+                    <span class="font-14 font-semibold">-</span>
+                </div>
+                <div class="deliverability-stats__wrapper d-flex align-items-center">
+                    <span class="font-14 font-medium">Total</span>
+                    <span class="font-14 font-semibold">-</span>
+                </div>
+                <div class="deliverability-stats__wrapper d-flex align-items-center">
+                    <span class="font-14 font-medium">Inbox</span>
+                    <span class="font-14 font-semibold">-</span>
+                </div>
+                <div class="deliverability-stats__wrapper d-flex align-items-center">
+                    <span class="font-14 font-medium">Spam</span>
+                    <span class="font-14 font-semibold">-</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

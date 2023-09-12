@@ -1,0 +1,545 @@
+{% extends "base_generic.html" %}
+{% block content %}
+
+  <nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand ml-4" href="#">
+      <img src="https://app.trulyinbox.com/static/media/truly-inbox.d8f0ea80.svg" class="d-inline-block align-top" alt="" style="
+      width: 150px;">
+    </a>
+    <div class="collapse navbar" id="navbarText" style="
+    margin-left: -860px;">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">EMAIL WARM-UP</a>
+        </li>
+      </ul>
+    </div>
+    <div class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle mr-5 text-black" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Dropdown link
+      </a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="#">Another action</a>
+        <a class="dropdown-item" href="#">Something else here</a>
+      </div>
+    </div>
+  </nav>
+
+  {% comment %} <div class="empty-list__photo-vertical empty-list__photo-vertical--withBgAndShadow">
+    <div class="empty-list__photo-withBgAndShadow d-flex align-items-center justify-content-center" style="
+    height: 3.0rem;">
+      <img src="https://app.trulyinbox.com/static/media/email.f064b00a.svg" alt="empty-data/">
+    </div>
+  </div>
+  <div class="empty-list__title-vertical">Build your email reputation with our email warm-up &amp; never land in spam again.</div>
+  <p class="top-welcome--body regular-2" >Add your first email account to get started.</p>
+  <div class="email-container">
+    <button id="openModalBtn" type="submit" class="addEmail-btn">Add Email Account</button>
+  </div>  {% endcomment %}
+
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <div class="row">
+        <div class="col">
+          <div class="modal-title">Select Account Type</div></div>
+        <div class="col">
+          <div id="closeModalBtn">X</div></div>
+        <hr> 
+      </div>
+      <p class="top-welcome--body regular-3">Connect your Email account from which you want to send email from TrulyInbox.</p>
+      <div class="select-email">Select the email service you use</div>
+
+      <div class="email-account-method-wrap">
+        <div id="google" class="email-account d-flex flex-column" role="button" tabindex="0">
+            <img class="email-account-img" src="https://app.trulyinbox.com/static/media/google-30x30.d8bfaa65.svg" alt="Google">
+            <span class="semibold-1 blue-txt-16 mt-1 email-label">Google</span>
+            <span class="regular-5 font-10 gray-txt-15 email-account__description">Gmail &amp; Google Workspace</span>
+        </div>
+        <div id="microsoft" class="email-account d-flex flex-column" role="button" tabindex="0">
+            <img class="email-account-img" src="https://app.trulyinbox.com/static/media/microsoft-30x30.49adb08d.svg" alt="Microsoft">
+            <span class="semibold-1 blue-txt-16 mt-1 email-label">Microsoft</span>
+            <span class="regular-5 font-10 gray-txt-15 email-account__description">Exchange, O365, Outlook &amp; Hotmail</span>
+        </div>
+        <div id="smtp-imap" class="email-account d-flex flex-column" role="button" tabindex="0">
+            <img class="email-account-img" src="https://app.trulyinbox.com/static/media/server-30x30.46156460.svg" alt="SMTP/IMAP">
+            <span class="semibold-1 blue-txt-16 mt-1 email-label">SMTP/IMAP</span>
+            <span class="regular-5 font-10 gray-txt-15 email-account__description">Any other Email Service provider account</span>
+        </div>
+      </div>
+
+      <p class="top-welcome--body regular-3"> Note: We don't store your mailbox data & you can remove your email account at any time. </p>
+    </div>
+  </div>
+
+  <div id="SMTPModal" class="modal">
+    <div id="SMTP-content" class="modal-content">
+      <div class="modal-content-container">
+          <div class="bs-modal-header modal-header">
+              <div class="modal-title h4">Connect SMTP/IMAP account</div>
+              <button type="button" class="close btn-solid btn-solid-default btn-solid-md">
+                  <i class="sh-close" role="button" tabindex="0"></i>
+              </button>
+              <div id="SMTPcloseModalBtn" class="modal-title h4" style="margin-right: -600px;">X</div>
+          </div>
+          <div class="bs-modal-body modal-body">
+              <div class="add-smtp-imap-wrapper d-flex flex-column">
+                  <div class="gray-1 bs-border-radius-8 p-3 d-flex justify-content-between">
+                      <div class="form-wrapper">
+                          <div class="smtp-details-form">
+                            <div class="form-header-wrapper d-flex justify-content-between">
+                              <div class="form-header-wrapper d-flex justify-content-between">
+                                <div class="form-header-title d-flex justify-content-between">
+                                  <div>
+                                    <span class="semibold-2 popover-arrow-color-txt title-txt">SMTP Details</span>
+                                    <span class="regular-1 gray-txt-21">(to send your email)</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="switch-wrap">
+                              <div class="switchToggle switch-small smtp-imap-switch use-username">
+                                <input type="checkbox" name="Switch">
+                                  <label class="switch" for="Switch" role="button" tabindex="0">
+                                  <span class="slider round">Use different username</span>
+                                  </label>
+                              </div>
+                            </div>
+                            <div class="form-container d-grid">
+                              <div class="form-item">
+                                <span class="semibold-1 gray-txt-15">Email Provider</span>
+                                <div class="email-provider-dropdown">
+                                    <div id="email-provider" class="bs-select-box" tabindex="0" width="220" height="22">
+                                        <select class="bs-select-box-text" style="
+                                        width: 100%;
+                                        height: 30px;">
+                                        <option class="bs-input-md bs-input">Select email service provider</option>
+                                        </select>                                      
+                                        <div class="bs-select-box-icon-wrapper">
+                                            <i class="sh-chevron-down" role="button" tabindex="0"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                              </div>
+                              <div class="form-item">
+                                <div class="bs-input-container input-default-container form-control-input">
+                                    <label class="bs-input-label-prefix">Sender Name</label>
+                                    <span class="bs-input-affix-wrapper bs-input-affix-wrapper-md input-default">
+                                        <input placeholder="Display Name" class="bs-input-md bs-input" value="">
+                                    </span>
+                                </div>
+                              </div>
+                              <div class="form-item">
+                                <div class="bs-input-container input-default-container form-control-input">
+                                    <label class="bs-input-label-prefix">Email Address</label>
+                                    <span class="bs-input-affix-wrapper bs-input-affix-wrapper-md input-default">
+                                        <input placeholder="email@address.com" type="email" class="bs-input-md bs-input" value="">
+                                    </span>
+                                </div>
+                              </div>
+                              <div class="form-item">
+                                <div class="bs-input-container input-default-container form-control-input">
+                                    <label class="bs-input-label-prefix">Password</label>
+                                    <span class="bs-input-affix-wrapper bs-input-affix-wrapper-md input-default">
+                                        <input name="password" placeholder="Password" type="password" autocomplete="login-password" class="bs-input-md bs-input" value="">
+                                    </span>
+                                </div>
+                              </div>
+                              <div class="form-item">
+                                <div class="bs-input-container input-default-container form-control-input">
+                                    <label class="bs-input-label-prefix">IMAP Host</label>
+                                    <span class="bs-input-affix-wrapper bs-input-affix-wrapper-md input-default">
+                                        <input placeholder="host.email.com" class="bs-input-md bs-input" value="">
+                                    </span>
+                                </div>
+                              </div>
+                              <div class="form-item">
+                                <div class="port-input-wrap form-control-input">
+                                    <div class="bs-input-number-container">
+                                        <label class="bs-input-number-label-prefix">IMAP Port</label>
+                                        <div class="bs-input-number-inner">
+                                            <div class="bs-input-number bs-input-number-md port-input">
+                                                <div class="bs-input-number-handler-wrap">
+                                                    <span class="bs-input-number-handler bs-input-number-handler-up" role="button" tabindex="0">
+                                                        <span class="bs-input-number-handler-up-inner">
+                                                            <i class="sh-chevron-up" role="button" tabindex="0"></i>
+                                                        </span>
+                                                    </span>
+                                                    <span class="bs-input-number-handler bs-input-number-handler-down" role="button" tabindex="0">
+                                                        <span class="bs-input-number-handler-down-inner">
+                                                            <i class="sh-chevron-down" role="button" tabindex="0"></i>
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                                <div class="bs-input-number-input-wrap">
+                                                    <input placeholder="123" type="number" class="bs-input-number-input" max="Infinity" min="-Infinity" value="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                              </div>
+                              <!-- ... Repeated pattern for other input items ... -->
+                              <div class="form-item">
+                                  <div class="encryption-radio-group-wrap">
+                                      <span class="semibold-1 gray-txt-15">Encryption</span>
+                                      <div class="encryption-radio-group">
+                                          <div role="group" class="encryption-radio-input btn-group btn-group-toggle">
+                                              <label class="btn-solid btn-solid-outlined">
+                                                  <input name="options" type="radio" autocomplete="off" value="SSL">SSL
+                                              </label>
+                                              <label class="btn-solid btn-solid-outlined">
+                                                  <input name="options" type="radio" autocomplete="off" value="TLS">TLS
+                                              </label>
+                                              <label class="btn-solid btn-solid-outlined">
+                                                  <input name="options" type="radio" autocomplete="off" value="none">None
+                                              </label>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                            </div>                          
+                          </div>
+                      </div>
+                      <div class="tips-wrapper">
+                        <div class="tips-container p-3 blue-17">
+                          <div class="tips-title">
+                            <p class="title-txt semibold-1">Steps to connect SMTP</p>
+                          </div>
+                          <div class="tips-sections">
+                            <div class="tip-section-points">
+                              <ol class="regular-1 gray-txt-15">
+                                <li>Ensure your email account is enabled for SMTP.</li>
+                                <li>Ensure that 2FA is not enabled on your email account.</li>
+                                <li>If 2FA is enabled, please use app-password instead of email password.</li>
+                              </ol>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="test-email-section mt-3">
+                          <button class="shd-button shd-button--secondary shd-button--disabled" disabled="" type="button">
+                            <span>Test SMTP Connection</span>
+                          </button>
+                        </div>
+                      </div>
+                  </div>
+                  <div class="gray-1 bs-border-radius-8 p-3 mt-2 d-flex justify-content-between">
+                    <div class="form-wrapper">
+                      <div class="imap-details-form">
+                          <div class="form-header-wrapper d-flex justify-content-between">
+                              <div class="form-header-wrapper d-flex justify-content-between">
+                                  <div class="form-header-title d-flex justify-content-between">
+                                      <div>
+                                          <span class="semibold-2 popover-arrow-color-txt title-txt">IMAP Details</span>
+                                          <span class="regular-1 gray-txt-21">(to track your email)</span>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="switch-wrap">
+                              <div class="switchToggle switch-small smtp-imap-switch">
+                                  <input type="checkbox" disabled="" name="Switch">
+                                  <label class="switch" for="Switch" role="button" tabindex="0">
+                                      <span class="slider round">Use the same username and password from SMTP</span>
+                                  </label>
+                              </div>
+                          </div>
+                          <div class="form-container d-grid">
+                              <div class="form-item">
+                                  <div class="bs-input-container input-default-container form-control-input">
+                                      <label class="bs-input-label-prefix">Email Address</label>
+                                      <span class="bs-input-affix-wrapper bs-input-affix-wrapper-md input-default">
+                                          <input placeholder="email@address.com" type="email" class="bs-input-md bs-input" value="">
+                                      </span>
+                                  </div>
+                              </div>
+                              <div class="form-item">
+                                  <div class="bs-input-container input-default-container form-control-input">
+                                      <label class="bs-input-label-prefix">Password</label>
+                                      <span class="bs-input-affix-wrapper bs-input-affix-wrapper-md input-default">
+                                          <input name="password" placeholder="Password" type="password" autocomplete="login-password" class="bs-input-md bs-input" value="">
+                                      </span>
+                                  </div>
+                              </div>
+                              <div class="form-item">
+                                  <div class="bs-input-container input-default-container form-control-input">
+                                      <label class="bs-input-label-prefix">IMAP Host</label>
+                                      <span class="bs-input-affix-wrapper bs-input-affix-wrapper-md input-default">
+                                          <input placeholder="host.email.com" class="bs-input-md bs-input" value="">
+                                      </span>
+                                  </div>
+                              </div>
+                              <div class="form-item">
+                                  <div class="port-input-wrap form-control-input">
+                                      <div class="bs-input-number-container">
+                                          <label class="bs-input-number-label-prefix">IMAP Port</label>
+                                          <div class="bs-input-number-inner">
+                                              <div class="bs-input-number bs-input-number-md port-input">
+                                                  <div class="bs-input-number-handler-wrap">
+                                                      <span class="bs-input-number-handler bs-input-number-handler-up" role="button" tabindex="0">
+                                                          <span class="bs-input-number-handler-up-inner">
+                                                              <i class="sh-chevron-up" role="button" tabindex="0"></i>
+                                                          </span>
+                                                      </span>
+                                                      <span class="bs-input-number-handler bs-input-number-handler-down" role="button" tabindex="0">
+                                                          <span class="bs-input-number-handler-down-inner">
+                                                              <i class="sh-chevron-down" role="button" tabindex="0"></i>
+                                                          </span>
+                                                      </span>
+                                                  </div>
+                                                  <div class="bs-input-number-input-wrap">
+                                                      <input placeholder="123" type="number" class="bs-input-number-input" max="Infinity" min="-Infinity" value="">
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="form-item">
+                                <div class="encryption-radio-group-wrap">
+                                    <span class="semibold-1 gray-txt-15">Encryption</span>
+                                    <div class="encryption-radio-group">
+                                        <div role="group" class="encryption-radio-input btn-group btn-group-toggle">
+                                            <label class="btn-solid btn-solid-outlined">
+                                                <input name="options" type="radio" autocomplete="off" value="SSL">SSL
+                                            </label>
+                                            <label class="btn-solid btn-solid-outlined">
+                                                <input name="options" type="radio" autocomplete="off" value="TLS">TLS
+                                            </label>
+                                            <label class="btn-solid btn-solid-outlined">
+                                                <input name="options" type="radio" autocomplete="off" value="none">None
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                              </div>
+                          </div>
+                      </div>
+                    </div>
+                    <div class="tips-wrapper">
+                      <div class="tips-container p-3 blue-17">
+                          <div class="tips-title">
+                              <p class="title-txt semibold-1">Steps to connect IMAP</p>
+                          </div>
+                          <div class="tips-sections">
+                              <div class="tip-section-points">
+                                  <ol class="regular-1 gray-txt-15">
+                                      <li>Ensure your email account is enabled for IMAP.</li>
+                                      <li>Ensure that use your email account credentials for IMAP connection.</li>
+                                  </ol>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="test-email-section mt-3">
+                          <div>
+                              <button class="shd-button shd-button--secondary shd-button--disabled test-btn" disabled="" type="button">
+                                  <span>Test IMAP Connection</span>
+                              </button>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+          </div>
+          <div class="bs-modal-footer modal-footer">
+              <div class="bs-modal-footer-action-buttons">
+                  <button id="SMTPcloseModalBtn" type="button" class="btn-ghost btn-ghost-outlined btn-ghost-md">Cancel</button>
+                  <button disabled="" type="button" class="submit-btn btn-solid btn-solid-primary btn-solid-md">Connect &amp; Save</button>
+              </div>
+          </div>
+      </div>
+    </div>  
+  </div>
+
+  <div class="p-4 d-flex justify-content-between align-items-center">
+    <form>
+      <span class="bs-input-affix-wrapper bs-input-affix-wrapper-md input-default search-input search-email-warmup">
+          <i class="fa fa-search search-icon" role="button" tabindex="0"></i>
+          <input placeholder="Search &amp; hit Enter" class="bs-input-md bs-input" value="" style="
+          padding-left: 30px; ">
+      </span>
+    </form>
+    <button id="openModalBtn" type="button" class="add-email-account-btn btn-solid btn-solid-primary btn-solid-md">
+        Add Email Account
+    </button>
+  </div>
+
+  <table id="email-table" class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col"></th>
+            <th scope="col" class="semibold-1 gray-txt-12">Email Address</th>
+            <th scope="col" class="semibold-1 gray-txt-12">Warmup Status</th>
+            <th scope="col" class="semibold-1 gray-txt-12">Sent Today</th>
+            <th scope="col" class="semibold-1 gray-txt-12">Received Today</th>
+            <th scope="col" class="semibold-1 gray-txt-12">Deliverability</th>
+            <th scope="col" class="semibold-1 gray-txt-12">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td>mark.otto@example.com</td>
+            <td>Warming Up</td>
+            <td>10</td>
+            <td>5</td>
+            <td>High</td>
+            <td>
+              <i id="warm-up-btn" class="fa-solid fa-pen"></i>
+              <i id="open-report" class="fas fa-chart-pie"></i>
+              <i class="fa fa-link"></i>
+              <i class="fa-solid fa-trash"></i>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+  <div id="warm-up-modal" class="modal">
+    <div id="warm-up-content" class="modal-content">
+      <div class="modal-content-container">
+          <div class="bs-modal-header modal-header">
+              <div class="modal-title h4">Warm-up Settings</div>
+              <button type="button" class="close btn-solid btn-solid-default btn-solid-md">
+                  <i class="sh-close" role="button" tabindex="0"></i>
+              </button>
+              <div id="warm-up-close-btn" class="modal-title h4" style="margin-right: -350px;">X</div>
+          </div>
+
+          <div class="bs-modal-body modal-body">
+            <div class="row">
+                <div class="col">
+                    <div class="bs-input-number-container">
+                        <label class="bs-input-number-label-prefix">
+                            <span class="settings-input--label">Start with emails/day<span class="settings-input--label--recommendation">(Recommended 3)</span></span>
+                        </label>
+                        <div id="bs-input-warmup" class="bs-input-number-inner">
+                            <div class="bs-input-number bs-input-number-md settings-input">
+                                <div class="bs-input-number-handler-wrap">
+                                    <span class="bs-input-number-handler bs-input-number-handler-up" role="button" tabindex="0">
+                                        <span class="bs-input-number-handler-up-inner">
+                                            <i class="sh-chevron-up" role="button" tabindex="0"></i>
+                                        </span>
+                                    </span>
+                                    <span class="bs-input-number-handler bs-input-number-handler-down" role="button" tabindex="0">
+                                        <span class="bs-input-number-handler-down-inner">
+                                            <i class="sh-chevron-down" role="button" tabindex="0"></i>
+                                        </span>
+                                    </span>
+                                </div>
+                                <div class="bs-input-number-input-wrap">
+                                    <input name="startWithEmailsPerDay" step="1" type="number" class="bs-input-number-input" max="Infinity" min="0" value="3">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="bs-input-number-container">
+                        <label class="bs-input-number-label-prefix">
+                            <span class="settings-input--label">Increase by emails every day <span class="settings-input--label--recommendation">(Recommended 3)</span></span>
+                        </label>
+                        <div class="bs-input-number-inner">
+                            <div class="bs-input-number bs-input-number-md settings-input">
+                                <div class="bs-input-number-handler-wrap">
+                                    <span class="bs-input-number-handler bs-input-number-handler-up" role="button" tabindex="0">
+                                        <span class="bs-input-number-handler-up-inner">
+                                            <i class="sh-chevron-up" role="button" tabindex="0"></i>
+                                        </span>
+                                    </span>
+                                    <span class="bs-input-number-handler bs-input-number-handler-down" role="button" tabindex="0">
+                                        <span class="bs-input-number-handler-down-inner">
+                                            <i class="sh-chevron-down" role="button" tabindex="0"></i>
+                                        </span>
+                                    </span>
+                                </div>
+                                <div class="bs-input-number-input-wrap">
+                                    <input name="increaseByEmailsEveryDay" step="1" type="number" class="bs-input-number-input" max="Infinity" min="0" value="3">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="bs-input-number-container">
+                        <label class="bs-input-number-label-prefix">
+                            <span class="settings-input--label">Maximum emails to be sent per day <span class="settings-input--label--recommendation">(Recommended 50)</span></span>
+                        </label>
+                        <div class="bs-input-number-inner">
+                            <div class="bs-input-number bs-input-number-md settings-input">
+                                <div class="bs-input-number-handler-wrap">
+                                    <span class="bs-input-number-handler bs-input-number-handler-up" role="button" tabindex="0">
+                                        <span class="bs-input-number-handler-up-inner">
+                                            <i class="sh-chevron-up" role="button" tabindex="0"></i>
+                                        </span>
+                                    </span>
+                                    <span class="bs-input-number-handler bs-input-number-handler-down" role="button" tabindex="0">
+                                        <span class="bs-input-number-handler-down-inner">
+                                            <i class="sh-chevron-down" role="button" tabindex="0"></i>
+                                        </span>
+                                    </span>
+                                </div>
+                                <div class="bs-input-number-input-wrap">
+                                    <input name="maximumEmailsToBeSentPerDay" step="1" type="number" class="bs-input-number-input" max="Infinity" min="1" value="50">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="bs-input-number-container">
+                        <label class="bs-input-number-label-prefix">
+                            <span class="settings-input--label">Reply rate <span class="settings-input--label--recommendation">(Recommended 10%)</span></span>
+                        </label>
+                        <div class="bs-input-number-inner">
+                          <div class="bs-input-number bs-input-number-md settings-input">
+                              <div class="bs-input-number-handler-wrap">
+                                  <span class="bs-input-number-handler bs-input-number-handler-up" role="button" tabindex="0">
+                                      <span class="bs-input-number-handler-up-inner">
+                                          <i class="sh-chevron-up" role="button" tabindex="0"></i>
+                                      </span>
+                                  </span>
+                                  <span class="bs-input-number-handler bs-input-number-handler-down" role="button" tabindex="0">
+                                      <span class="bs-input-number-handler-down-inner">
+                                          <i class="sh-chevron-down" role="button" tabindex="0"></i>
+                                      </span>
+                                  </span>
+                              </div>
+                              <div class="bs-input-number-input-wrap">
+                                  <input name="replyRate" step="1" type="number" class="bs-input-number-input" max="Infinity" min="0" value="10">
+                              </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="bs-input-container input--container settings-input">
+                        <label class="bs-input-label-prefix">
+                            <span class="settings-input--label">Sender name</span>
+                        </label>
+                        <span class="bs-input-affix-wrapper bs-input-affix-wrapper-md input-">
+                            <input name="senderName" class="bs-input-md bs-input" value="Mansi">
+                        </span>
+                    </div>
+                </div>
+            </div>
+          </div>        
+
+          <div class="bs-modal-footer modal-footer">
+              <div class="bs-modal-footer-action-buttons">
+                  <button id="warm-up-close-btn" type="button" class="btn-ghost btn-ghost-outlined btn-ghost-md">Cancel</button>
+                  <button disabled="" type="button" class="submit-btn btn-solid btn-solid-primary btn-solid-md">Save</button>
+              </div>
+          </div>
+      </div>
+    </div>  
+  </div>
+
+{% endblock %}

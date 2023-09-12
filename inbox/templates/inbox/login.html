@@ -1,0 +1,33 @@
+{% extends "base_generic.html" %}
+{% block content %}
+<div class="user-container container-fluid">
+  <div class="row">
+    <div class="user-right col">
+      <div class="signup">
+        <div class="top-logo d-flex justify-content-center align-items-center">
+          <span class="semibold-4 blue-txt-6 mr-2 pr-1"></span>
+          <img src="https://app.trulyinbox.com/static/media/truly-inbox.d8f0ea80.svg" alt="logo">
+      </div>
+        <h3 class="top-welcome--header semibold-5">Login</h3>
+        <p class="top-welcome--body regular-2">Need an account? <a href="/register">Create an account</a> </p>
+        <form method="post">
+            {% csrf_token %}
+            <div>
+              <div>
+                <label class="bs-input-label-prefix" for="{{ form.email.id_for_email }}">Email</label><br>
+                {{ form.email }}
+
+                <label class="bs-input-label-prefix" for="{{ form.password.id_for_password }}">Password</label><br>
+                {{ form.password }}
+              </div>
+            </div>
+            <button type="submit" class="signup-btn">Login</button>
+            <div class="privacy-policy-text">
+                <p class="forgot-password"><a class="pointer" href="/reset-password">Forgot Password?</a><p>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "base_generic.html" %}
+{% block content %}
+<div class="user-container container-fluid">
+  <div class="row">
+    <div class="user-right col">
+      <div class="signup">
+        <div class="top-logo d-flex justify-content-center align-items-center">
+          <span class="semibold-4 blue-txt-6 mr-2 pr-1"></span>
+          <img src="https://app.trulyinbox.com/static/media/truly-inbox.d8f0ea80.svg" alt="logo">
+      </div>
+        <h3 class="top-welcome--header semibold-5">Signup for free</h3>
+        <p class="top-welcome--body regular-2">No obligation, no credit - card required.</p>
+        <form method="post">
+            {% csrf_token %}
+            <div>
+              <div>
+                <label class="bs-input-label-prefix" for="{{ form.email.id_for_label }}">Email</label><br>
+                {{ form.email }}
+              </div>
+            </div>
+            <button type="submit" class="signup-btn">Sign Up</button>
+            <div class="privacy-policy-text">
+            <p class="regular-1">By signing up, you agree to the TrulyInbox’s Terms of Service and Privacy Policy.</p>
+            </div>
+            <p>Already have an account? <a href="/login">Login</a></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
